@@ -8,7 +8,7 @@ app = Flask(__name__)
 my_todo_list = []
 @app.route('/', methods=["GET", "POST"])
 def home():
-    # print(my_todo_list)
+# print my_todo_list
     if request.method == "POST":
         newTask = request.form["newTask"]
         if len(newTask) > 0 and newTask not in my_todo_list:
@@ -16,7 +16,7 @@ def home():
 
     return render_template("index.html", my_list=my_todo_list, name="Aya")
 
-
+# delete task
 @app.route("/delete/<task>")
 def delete(task):
     my_todo_list.remove(task)
